@@ -43,7 +43,13 @@ class NilaiMahasiswaController extends Controller
 
     public function show($id) {
         $nilai = NilaiMahasiswa::with(['dosen','matakuliah','prodi','jurusan'])->findOrFail($id);
-        return view('admin.nilai.show', compact('nilai'));
+        // Ambil seluruh mahasiswa pada prodi, jurusan, semester, tahun akademik yang sama
+        $mahasiswa = DB::table('tb_mahasiswa')
+            ->where('id_prodi', $nilai->prodi_id)
+            ->where('id_jurusan', $nilai->jurusan_id)
+            ->where('semester', $nilai->semester)
+            ->get();
+        return view('admin.nilai.show', compact('nilai', 'mahasiswa'));
     }
 
     public function edit($id) {
