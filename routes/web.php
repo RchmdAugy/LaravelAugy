@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\C_login;
+use App\Http\Controllers\NilaiMahasiswaController;
 
 Route::get('/', [C_login::class, "index"]);
 

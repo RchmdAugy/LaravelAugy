@@ -1,201 +1,118 @@
 <body class="hold-transition sidebar-mini">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light shadow-sm">
+  <!-- Navbar - Improved -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light shadow-sm" style="background: linear-gradient(135deg, #3a7bd5, #00d2ff);">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        <a class="nav-link text-white" data-widget="pushmenu" href="#" role="button">
+          <i class="fas fa-bars"></i>
+        </a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/home" class="nav-link">Beranda</a>
+        <a href="/home" class="nav-link text-white">Beranda</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Kontak Kami</a>
+        <a href="#" class="nav-link text-white">Kontak Kami</a>
       </li>
     </ul>
 
-    <!-- Right navbar links -->
+    <!-- Right navbar links - Improved -->
     <ul class="navbar-nav ml-auto align-items-center">
-      <li class="nav-item mr-2">
-        <span class="text-secondary small">Halo, <b>{{ auth()->user()->name ?? 'Pengguna' }}</b></span>
+      <li class="nav-item mr-3">
+        <span class="text-white small">
+          <i class="fas fa-user-circle mr-1"></i>
+          <b>{{ auth()->user()->name ?? 'Pengguna' }}</b>
+        </span>
       </li>
       <li class="nav-item">
         <form action="{{ route('logout') }}" method="POST" class="d-inline">
-            @csrf
-            <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-sign-out-alt mr-1"></i>Keluar</button>
+          @csrf
+          <button type="submit" class="btn btn-outline-light btn-sm">
+            <i class="fas fa-sign-out-alt mr-1"></i>Keluar
+          </button>
         </form>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Cari..." aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
       </li>
     </ul>
   </nav>
-  <!-- /.navbar -->
 
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Sidebar -->
+  <!-- Main Sidebar Container - Improved -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: #2c3e50;">
+    <!-- Sidebar - Improved -->
     <div class="sidebar">
-      <!-- Sidebar user (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <!-- Sidebar user panel - Improved -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex align-items-center">
         <div class="image">
-          <img src="{{asset('AdminLTE-3.2.0')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset('AdminLTE-3.2.0')}}/dist/img/user2-160x160.jpg" 
+               class="img-circle elevation-2" 
+               alt="User Image"
+               style="width: 40px; height: 40px; object-fit: cover;">
         </div>
         <div class="info">
-          <a href="#" class="d-block">{{ auth()->user()->name ?? 'Pengguna' }}</a>
+          <a href="#" class="d-block text-white">{{ auth()->user()->name ?? 'Pengguna' }}</a>
+          <small class="text-light">Admin</small>
         </div>
       </div>
 
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Cari menu..." aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
+      <!-- Sidebar Menu - Improved -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
-
           @if (auth()->user()->hasLevel(1))
-          <li class="nav-header text-info">ADMINISTRATOR</li>
+          <li class="nav-header text-uppercase text-light mb-2" style="font-size: 0.8rem; letter-spacing: 1px;">
+            <i class="fas fa-user-shield mr-1"></i> ADMINISTRATOR
+          </li>
+          
+          <!-- Menu Items with Improved Icons and Styling -->
           <li class="nav-item">
-            <a href="/admin" class="nav-link {{ Request::is('admin') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-home"></i>
+            <a href="/admin" class="nav-link {{ Request::is('admin') ? 'active bg-info' : 'text-light' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Dashboard</p>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a href="/admin/kelola_dosen" class="nav-link {{ Request::is('admin/kelola_dosen*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-user-tie"></i>
+            <a href="/admin/kelola_dosen" class="nav-link {{ Request::is('admin/kelola_dosen*') ? 'active bg-info' : 'text-light' }}">
+              <i class="nav-icon fas fa-chalkboard-teacher"></i>
               <p>Manajemen Dosen</p>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a href="/admin/mahasiswa" class="nav-link {{ Request::is('admin/mahasiswa*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-user-graduate"></i>
+            <a href="/admin/mahasiswa" class="nav-link {{ Request::is('admin/mahasiswa*') ? 'active bg-info' : 'text-light' }}">
+              <i class="nav-icon fas fa-users"></i>
               <p>Data Mahasiswa</p>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a href="/admin/nilai" class="nav-link {{ Request::is('admin/nilai*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-clipboard-list"></i>
+            <a href="/admin/nilai" class="nav-link {{ Request::is('admin/nilai*') ? 'active bg-info' : 'text-light' }}">
+              <i class="nav-icon fas fa-clipboard-check"></i>
               <p>Nilai Mahasiswa</p>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a href="/admin/user" class="nav-link {{ Request::is('admin/user*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-users-cog"></i>
+            <a href="/admin/user" class="nav-link {{ Request::is('admin/user*') ? 'active bg-info' : 'text-light' }}">
+              <i class="nav-icon fas fa-user-cog"></i>
               <p>Manajemen Pengguna</p>
             </a>
           </li>
-          </li>
+          
           <li class="nav-item">
-            <a href="/admin/chart" class="nav-link {{ Request::is('admin/chart*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-chart-bar"></i>
+            <a href="/admin/chart" class="nav-link {{ Request::is('admin/chart*') ? 'active bg-info' : 'text-light' }}">
+              <i class="nav-icon fas fa-chart-pie"></i>
               <p>Statistik</p>
             </a>
           </li>
+          
           <li class="nav-item">
-            <a href="/admin/invoice" class="nav-link {{ Request::is('admin/invoice*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-file-invoice"></i>
+            <a href="/admin/invoice" class="nav-link {{ Request::is('admin/invoice*') ? 'active bg-info' : 'text-light' }}">
+              <i class="nav-icon fas fa-receipt"></i>
               <p>Tagihan & Pembayaran</p>
             </a>
           </li>
           @endif
-
-          @if (auth()->user()->hasLevel(2))
-          <li class="nav-header text-success">PENGGUNA UMUM</li>
-          <li class="nav-item">
-            <a href="/user" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-home"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/user/user" class="nav-link {{ Request::is('user/user*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-user"></i>
-              <p>Profil Saya</p>
-            </a>
-          </li>
-          @endif
-
-          @if (auth()->user()->hasLevel(3))
-          <li class="nav-header text-warning">MAHASISWA</li>
-          <li class="nav-item">
-            <a href="/mahasiswa" class="nav-link {{ Request::is('mahasiswa') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-home"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/mahasiswa/mahasiswa" class="nav-link {{ Request::is('mahasiswa/mahasiswa*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-user-graduate"></i>
-              <p>Data Pribadi</p>
-            </a>
-          </li>
-          @endif
-
-          @if (auth()->user()->hasLevel(4))
-          <li class="nav-header text-primary">DOSEN</li>
-          <li class="nav-item">
-            <a href="/dosen" class="nav-link {{ Request::is('dosen') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-home"></i>
-              <p>Dashboard</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/dosen/kelola_akun" class="nav-link {{ Request::is('dosen/kelola_akun*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-user-cog"></i>
-              <p>Pengaturan Akun</p>
-            </a>
-          </li>
-          @endif
-
         </ul>
       </nav>
-      <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
   </aside>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
 </body>
