@@ -122,11 +122,6 @@
               <p>Manajemen Pengguna</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/admin/about" class="nav-link {{ Request::is('admin/about*') ? 'active' : '' }}">
-              <i class="nav-icon fas fa-info-circle"></i>
-              <p>Tentang Sistem</p>
-            </a>
           </li>
           <li class="nav-item">
             <a href="/admin/chart" class="nav-link {{ Request::is('admin/chart*') ? 'active' : '' }}">

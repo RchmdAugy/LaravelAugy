@@ -2,68 +2,97 @@
 
 @section('content')
 
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Admin</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Admin</a></li>
-              <li class="breadcrumb-item active">Home</li>
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Selamat datang Admin</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                Silahkan gunakan menu menu yang ada di halaman admin ini
-              </div>
-              <div class="card-footer">
-                footer
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
+<!-- Content Header -->
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h1><i class="fas fa-home"></i> Dashboard</h1>
       </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Admin</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </div>
+    </div>
   </div>
+</section>
 
+<!-- Main Content -->
+<section class="content">
+  <div class="container-fluid">
 
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>   
+    <!-- Welcome Card -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card bg-gradient-primary text-white shadow">
+          <div class="card-body">
+            <h3 class="card-title"><i class="fas fa-user-shield"></i> Selamat Datang, Admin!</h3>
+            <p class="card-text mt-2">
+              Anda telah login sebagai <strong>Administrator</strong>. Silakan pilih menu di sebelah kiri untuk mulai mengelola data dosen, mahasiswa, nilai, dan lainnya.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Boxes -->
+    <div class="row">
+      <div class="col-lg-3 col-6">
+        <div class="small-box bg-info">
+          <div class="inner">
+            <h3>25</h3>
+            <p>Dosen Aktif</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <a href="#" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6">
+        <div class="small-box bg-success">
+          <div class="inner">
+            <h3>342</h3>
+            <p>Mahasiswa Terdaftar</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-user-graduate"></i>
+          </div>
+          <a href="#" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6">
+        <div class="small-box bg-warning">
+          <div class="inner">
+            <h3>89</h3>
+            <p>Nilai Belum Diverifikasi</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-clipboard-list"></i>
+          </div>
+          <a href="#" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-6">
+        <div class="small-box bg-danger">
+          <div class="inner">
+            <h3>12</h3>
+            <p>Tagihan Bermasalah</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-file-invoice-dollar"></i>
+          </div>
+          <a href="#" class="small-box-footer">Lihat Detail <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 @endsection
